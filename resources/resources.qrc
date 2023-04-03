@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/">
+        <file>config.json</file>
+        <file>audio/notify-1.wav</file>
+        <file>audio/notify-2.wav</file>
+        <file>icons/app-icon.png</file>
+        <file>icons/circle-green.png</file>
+        <file>icons/circle-red.png</file>
+        <file>icons/setting-icon.png</file>
+        <file>icons/news-icon.png</file>
+        <file>icons/default-category.png</file>
+        <file>icons/settings-general-icon.png</file>
+        <file>icons/settings-news-icon.png</file>
+        <file>icons/settings-add.png</file>
+        <file>icons/settings-remove.png</file>
+        <file>icons/settings-category-up.png</file>
+        <file>icons/settings-category-down.png</file>
+        <file>icons/news-favorite-on.png</file>
+        <file>icons/news-favorite-off.png</file>
+        <file>icons/news-hide.png</file>
+        <file>icons/news-show.png</file>
+        <file>icons/news-page-prev.png</file>
+        <file>icons/news-page-next.png</file>
+        <file>icons/day_1.png</file>
+        <file>icons/day_2.png</file>
+        <file>icons/day_3.png</file>
+        <file>icons/day_4.png</file>
+        <file>icons/day_5.png</file>
+        <file>icons/day_6.png</file>
+        <file>icons/day_7.png</file>
+        <file>lang/pl-pl.json</file>
+        <file>lang/en-us.json</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,18 @@
+{
+    "settings":{
+        "language": ":/lang/pl-pl.json",
+        "language_external": false,
+        "general_minimize_after_exit" : true,
+        "news_limit": 30,
+        "news_auto_refresh": true,
+        "news_auto_refresh_period": 15,
+        "news_audio_notification": true,
+        "news_audio_notification_path": null,
+        "news_auto_remove": true,
+        "news_auto_remove_days": 30
+        
+    },
+    "categories": {},
+    "sources": {},
+    "news": {}
+}
