@@ -42,7 +42,13 @@ void MainView::switchToFavoritesNews(){
         this->currentCategory = nullptr;
         delete currentContentView;
     }
-    malloc_trim(0); // free memory after other views
+    //malloc_trim(0); // free memory after other views
+	#ifdef _WIN32
+        _heapmin();
+    #elif
+        malloc_trim(0);
+    #endif
+	
     currentContentView = new NewsContainerWidget();
     connect(this, &MainView::filterByFavorites, static_cast<NewsContainerWidget*>(currentContentView), &NewsContainerWidget::filterByFavorites);
     emit filterByFavorites();
@@ -57,7 +63,13 @@ void MainView::switchToNewsWidget(){
         this->currentCategory = nullptr;
         delete currentContentView;
     }
-    malloc_trim(0); // free memory after other views
+    //malloc_trim(0); // free memory after other views
+	#ifdef _WIN32
+        _heapmin();
+    #elif
+        malloc_trim(0);
+    #endif
+	
     currentContentView = new NewsContainerWidget();
     connect(this, &MainView::showAllNews, static_cast<NewsContainerWidget*>(currentContentView), &NewsContainerWidget::showAll);
     emit showAllNews();
@@ -73,7 +85,14 @@ void MainView::switchToSettingsWidget(){
         this->currentCategory = nullptr;
         delete currentContentView;
     }
-    malloc_trim(0); // free memory after other views
+    //malloc_trim(0); // free memory after other views
+
+	#ifdef _WIN32
+        _heapmin();
+    #elif
+        malloc_trim(0);
+    #endif
+	
     currentContentView = new SettingsWidget();
     connect(static_cast<SettingsWidget*>(currentContentView), &SettingsWidget::updateNavigateBar, this->navigate, &NavigateWidget::updateCategories);
     addWidget(currentContentView);
@@ -88,7 +107,13 @@ void MainView::switchToCategoryWidget(Category * category){
         this->currentCategory = nullptr;
         delete currentContentView;
     }
-    malloc_trim(0); // free memory after other views
+    //malloc_trim(0); // free memory after other views
+	_heapmin();
+	#ifdef _WIN32
+        _heapmin();
+    #elif
+        malloc_trim(0);
+    #endif
     this->currentCategory = category;
     qDebug() << "switch to category on position: "<< this->currentCategory ->getPosition();
 
