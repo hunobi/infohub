@@ -35,7 +35,7 @@ Do uruchomienia aplikacji InfoHub wymagane są:
 
 >Uwaga!
 
-W przypadku problemów z wykrywaniem biblioteki Qt6, spróbuj dodać do pliku CMakeFiles.txt instrukcje definiujące `CMAKE_PREFIX_PATH` oraz `Qt6_DIR`. Przykład dla Qt zainstalowanym w systemie Windows:
+W przypadku problemów z wykrywaniem biblioteki Qt6, spróbuj dodać do pliku CMakeLists.txt instrukcje definiujące `CMAKE_PREFIX_PATH` oraz `Qt6_DIR`. Przykład dla Qt zainstalowanym w systemie Windows:
 
 `set(CMAKE_PREFIX_PATH "C:/Qt/6.5.0/mingw_64")`
 
