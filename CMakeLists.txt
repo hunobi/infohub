@@ -7,7 +7,10 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 set(QT_VERSION_MAJOR 6)
+#set(CMAKE_PREFIX_PATH "C:/Qt/6.5.0/mingw_64")
+#set(Qt6_DIR "C:/Qt/6.5.0/mingw_64/lib/cmake/Qt6")
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
