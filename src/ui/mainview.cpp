@@ -2,6 +2,15 @@
 #include<ui/mainwindow.hpp>
 #include<malloc.h>
 
+#ifdef _WIN32
+    #include <malloc.h>
+    #define MEMORY_TRIM _heapmin()
+#else
+    #include <malloc.h>
+    #define MEMORY_TRIM malloc_trim(0)
+#endif
+
+
 MainView::MainView(QWidget *parent): QSplitter(parent)
 {
     setHandleWidth(5);
@@ -43,9 +52,9 @@ void MainView::switchToFavoritesNews(){
         delete currentContentView;
     }
     //malloc_trim(0); // free memory after other views
-	#ifdef _WIN32
+    #ifdef _WIN32
         _heapmin();
-    #elif
+    #else
         malloc_trim(0);
     #endif
 	
@@ -64,11 +73,7 @@ void MainView::switchToNewsWidget(){
         delete currentContentView;
     }
     //malloc_trim(0); // free memory after other views
-	#ifdef _WIN32
-        _heapmin();
-    #elif
-        malloc_trim(0);
-    #endif
+    MEMORY_TRIM;
 	
     currentContentView = new NewsContainerWidget();
     connect(this, &MainView::showAllNews, static_cast<NewsContainerWidget*>(currentContentView), &NewsContainerWidget::showAll);
@@ -87,11 +92,7 @@ void MainView::switchToSettingsWidget(){
     }
     //malloc_trim(0); // free memory after other views
 
-	#ifdef _WIN32
-        _heapmin();
-    #elif
-        malloc_trim(0);
-    #endif
+    MEMORY_TRIM;
 	
     currentContentView = new SettingsWidget();
     connect(static_cast<SettingsWidget*>(currentContentView), &SettingsWidget::updateNavigateBar, this->navigate, &NavigateWidget::updateCategories);
@@ -108,12 +109,7 @@ void MainView::switchToCategoryWidget(Category * category){
         delete currentContentView;
     }
     //malloc_trim(0); // free memory after other views
-	_heapmin();
-	#ifdef _WIN32
-        _heapmin();
-    #elif
-        malloc_trim(0);
-    #endif
+    MEMORY_TRIM;
     this->currentCategory = category;
     qDebug() << "switch to category on position: "<< this->currentCategory ->getPosition();
 
